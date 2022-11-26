@@ -1,0 +1,41 @@
+.container{
+    width: 30%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 40px;
+    cursor: pointer;
+}
+
+.title{
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(172, 172, 172);
+}
+
+.price{
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(190, 175, 175);
+}
+
+.desc{
+    text-align: center;
+    color: rgb(146, 130, 130);
+}
+
+@media screen and (max-width: 480px){
+    .container{
+        width: 100%;
+    }
+
+    .title{
+        font-size: 23px;
+    }
+
+    .price .desc{
+        font-size: 20px;
+    }
+}

@@ -1,0 +1,44 @@
+.container{
+    height: calc(100vh - 230px);
+    background-color: rgb(255, 100, 2);
+    overflow: hidden;
+}
+
+.arrowContainer{
+    position: absolute;
+    width: 18%;
+    height: 20%;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.arrowContainer:first-child{
+    padding-left: 50px;
+}
+
+.arrowContainer:last-child{
+    padding-left: 70px;
+}
+.wrapper{
+    width: 300vw;
+    height: 100%;
+    display: flex;
+    padding-left: 230px;
+    padding-top: 50px;
+    transition: all 1.5s ease-in-out;
+}
+
+.imgContainer{
+    width: 100vw;
+    height: 100%;
+    position: relative;
+}
+
+@media screen and (max-width:480px) {
+    .container{
+        height: 50vh;
+    }
+}
