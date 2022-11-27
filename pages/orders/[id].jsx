@@ -6,7 +6,7 @@ import paid from "/pages/images/paid.jpg";
 import checked from "/pages/images/checked.jpg";
 import preparing from "/pages/images/preparing.jpg";
 import on_the_way from "/pages/images/delivery.jpg";
-import delivered from "/pages/images/delivered.jpg";
+import delivered from "/pages/images/delivery.jpg";
 
 const Orders = () => {
 
