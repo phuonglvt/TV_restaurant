@@ -1,4 +1,6 @@
+import axios from 'axios'
 import Head from 'next/head'
+import { useEffect } from 'react'
 import BurgerList from '../components/Burger/BurgerList'
 import DrinksList from '../components/Drinks/DrinksList'
 import Featured from '../components/Featured'
@@ -8,7 +10,8 @@ import OthersList from '../components/Others/OthersList'
 import PizzaList from '../components/Pizza/PizzaList'
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
+export default function Home({pizzaList}) {
+
   return (
     <div className={styles.container}>
       <Navbar />
@@ -18,11 +21,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Featured />
-      <PizzaList />
+      <PizzaList pizzaList={pizzaList}/>
       <BurgerList />
       <DrinksList />
       <OthersList />
       <Footer />
     </div>
   )
+}
+
+export const getServerSideProps = async () => {
+  const res = await axios.get("http://localhost:3001/api/products");
+  return{
+    props:{
+      pizzaList:res.data,
+    }
+  }
 }
