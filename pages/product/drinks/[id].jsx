@@ -1,6 +1,6 @@
 import styles from "../../../styles/ProductDrinks.module.css";
 import Image from "next/image";
-import drink1 from "../../images/pepsi1.webp";
+import drink1 from "../../../public/pages/images/pepsi1.webp";
 import Footer from "../../../components/Footer";
 import Navbar from "../../../components/Navbar";
 

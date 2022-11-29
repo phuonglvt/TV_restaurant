@@ -14,7 +14,6 @@ const PizzaList = ({pizzaList}) => {
             </p>
             <div className={styles.wrapper}>
                 {pizzaList.map((pizza) =>(
-                    console.log(pizza),
                     <PizzaCart key={pizza._id} pizza={pizza}/>
                 ))}
             </div>

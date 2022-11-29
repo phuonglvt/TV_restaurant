@@ -1,6 +1,8 @@
 import axios from 'axios'
 import Head from 'next/head'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import Add from '../components/Pizza/Add'
+import AddButton from '../components/Pizza/AddButton'
 import BurgerList from '../components/Burger/BurgerList'
 import DrinksList from '../components/Drinks/DrinksList'
 import Featured from '../components/Featured'
@@ -11,7 +13,7 @@ import PizzaList from '../components/Pizza/PizzaList'
 import styles from '../styles/Home.module.css'
 
 export default function Home({pizzaList}) {
-
+  const [close, setClose] = useState(true);
   return (
     <div className={styles.container}>
       <Navbar />
@@ -21,10 +23,15 @@ export default function Home({pizzaList}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Featured />
+      {<AddButton setClose={setClose} />}
       <PizzaList pizzaList={pizzaList}/>
+      {!close && <Add setClose={setClose}/>}
       <BurgerList />
+      {!close && <Add setClose={setClose}/>}
       <DrinksList />
+      {!close && <Add setClose={setClose}/>}
       <OthersList />
+      {!close && <Add setClose={setClose}/>}
       <Footer />
     </div>
   )
