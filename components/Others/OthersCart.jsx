@@ -1,5 +1,5 @@
 import styles from "../../styles/Others/OthersCart.module.css";
-import italian_noodles from "../../pages/images/italian-noodles.jpeg";
+import italian_noodles from "../../public/pages/images/italian-noodles.jpeg";
 import Image from "next/image";
 
 const OthersCart = () => {

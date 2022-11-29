@@ -1,5 +1,5 @@
 import styles from "../../styles/Drinks/DrinksCart.module.css";
-import pepsi from "../../pages/images/pepsi.jpg";
+import pepsi from "../../public/pages/images/pepsi.jpg";
 import Image from "next/image";
 
 const DrinksCart = () => {

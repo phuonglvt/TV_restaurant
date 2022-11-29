@@ -1,6 +1,6 @@
 import styles from "../styles/Footer.module.css";
 import Image from "next/image";
-import background from "../pages/images/bg.png";
+import background from "../public/pages/images/background.jpeg";
 
 
 const Footer = () => {

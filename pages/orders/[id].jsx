@@ -2,21 +2,23 @@ import styles from "../../styles/Order.module.css";
 import Image from "next/image";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
-import paid from "/pages/images/paid.jpg";
-import checked from "/pages/images/checked.jpg";
-import preparing from "/pages/images/preparing.jpg";
-import on_the_way from "/pages/images/delivery.jpg";
-import delivered from "/pages/images/delivery.jpg";
+import paid from "../../public/pages/images/paid.jpg";
+import checked from "../../public/pages/images/checked.jpg";
+import preparing from "../../public/pages/images/preparing.jpg";
+import on_the_way from "../../public/pages/images/delivery.jpg";
+import delivered from "../../public/pages/images/delivery.jpg";
+import axios from "axios";
 
-const Orders = () => {
+const Orders = ({order}) => {
 
-    const status = 0;
+    const status = order.status;
 
     const statusClass = (index) => {
         if(index - status < 1) return styles.done;
         if(index - status === 1) return styles.inProgress;
         if(index - status > 1) return styles.undone;
     };
+    
     return(
         <div className={styles.containers}>
             <Navbar />
@@ -32,18 +34,18 @@ const Orders = () => {
                             </tr>
                             <tr className={styles.tr}>
                                 <td>
-                                    <span className={styles.id}>12345678</span>
+                                    <span className={styles.id}>{order._id}</span>
                                 </td>
                                 <td>
                                     <span className={styles.name}>
-                                        Phuong Luu
+                                        {order.customer}
                                     </span>
                                 </td>
                                 <td>
-                                    <span className={styles.address}>Nguyen Cong Tru</span>
+                                    <span className={styles.address}>{order.address}</span>
                                 </td>
                                 <td>
-                                    <span className={styles.total}>98.000vnd</span>
+                                    <span className={styles.total}>{order.total}vnd</span>
                                 </td>
                             </tr>
                         </table>
@@ -88,13 +90,13 @@ const Orders = () => {
                     <div className={styles.wrapper}>
                         <h2 className={styles.title}>CART TOTAL</h2>
                         <div className={styles.totalText}>
-                            <b className={styles.totalTextTitle}>Subtotal:</b>98.000vnd
+                            <b className={styles.totalTextTitle}>Subtotal:</b>{order.total}vnd
                         </div>
                         <div className={styles.totalText}>
                             <b className={styles.totalTextTitle}>Discount:</b>0
                         </div>
                         <div className={styles.totalText}>
-                            <b className={styles.totalTextTitle}>Total:</b>98.000vnd
+                            <b className={styles.totalTextTitle}>Total:</b>{order.total}vnd
                         </div>
                         <button disabled className={styles.button}>PAID</button>
                     </div>
@@ -104,5 +106,14 @@ const Orders = () => {
         </div>
     )
 }
+
+export const getServerSideProps = async ({params}) => {
+    const res = await axios.get(`http://localhost:3000/api/orders/${params.id}`);
+    return{
+      props:{
+        order:res.data,
+      },
+    };
+};
 
 export default Orders

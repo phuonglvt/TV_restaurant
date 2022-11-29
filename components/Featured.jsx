@@ -1,10 +1,10 @@
 import styles from "../styles/Feature.module.css";
 import Image from "next/image";
-import arrow_left from "../pages/images/arrl.png";
-import arrow_right from "../pages/images/arrow_right.png";
-import feature_1 from "../pages/images/feature.png";
-import feature_2 from "../pages/images/feature_2.jpg";
-import feature_3 from "../pages/images/feature_3.png";
+import arrow_left from "../public/pages/images/arrl.png";
+import arrow_right from "../public/pages/images/arrow_right.png";
+import feature_1 from "../public/pages/images/feature.png";
+import feature_2 from "../public/pages/images/feature_2.jpg";
+import feature_3 from "../public/pages/images/feature_3.png";
 import { useState } from "react";
 
 const Featured = () => {

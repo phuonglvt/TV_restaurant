@@ -1,5 +1,5 @@
 import styles from "../../styles/Burger/BurgerCart.module.css";
-import burger from "../../pages/images/burger.jpeg";
+import burger from "../../public/pages/images/burger.jpeg";
 import Image from "next/image";
 
 const BurgerCart = () => {
