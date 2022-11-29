@@ -28,7 +28,10 @@ const Cart = () => {
 
     const createOrder = async (data) =>{
         try{
-            const res = axios.post("http:/localhost:3000/api/orders", data)
+            console.log(data);
+            const res = await axios.post("http:/api/orders", data)
+            console.log(res.data);
+            console.log(res);
 
             res.status === 201 && router.push("/orders/"+res.data._id); 
             dispatch(reset());
@@ -36,7 +39,7 @@ const Cart = () => {
             console.log(err);
         }
     }
-    console.log(createOrder);
+
 
     // Custom component to wrap the PayPalButtons and handle currency changes
     const ButtonWrapper = ({ currency, showSpinner }) => {
