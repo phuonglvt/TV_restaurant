@@ -2,7 +2,6 @@ import styles from "../styles/Cart.module.css";
 import Image from "next/image";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import pizza from "../public/pages/images/pizza.jpeg";
 import {useDispatch, useSelector} from "react-redux";
 import { useEffect, useState } from "react";
 import {
@@ -13,6 +12,7 @@ import {
 import axios from "axios";
 import { useRouter } from "next/router";
 import { reset } from "../redux/cartSlice";
+import OrderDetail from "../components/OrderDetail";
 
 
 const Cart = () => {
@@ -31,11 +31,12 @@ const Cart = () => {
             const res = axios.post("http:/localhost:3000/api/orders", data)
 
             res.status === 201 && router.push("/orders/"+res.data._id); 
-            dispatch(reset())
+            dispatch(reset());
         }catch(err){
             console.log(err);
         }
     }
+    console.log(createOrder);
 
     // Custom component to wrap the PayPalButtons and handle currency changes
     const ButtonWrapper = ({ currency, showSpinner }) => {
@@ -177,6 +178,9 @@ const Cart = () => {
                         )}
                     </div>
                 </div>
+                {cash && (
+                    <OrderDetail total = {cart.total} createOrder={createOrder}/>
+                )}
             </div>
             <Footer />
         </div>
